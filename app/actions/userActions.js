@@ -36,8 +36,7 @@ const updateUserById = (id, data) => {
         .catch(e => e)
 }
 
-module.exports ={
-
+module.exports = {
     createUser,
     getUserByEmail,    
     addPostToUser,
@@ -45,5 +44,4 @@ module.exports ={
     getAllUsers,
     deleteUserById,
     updateUserById
-
 }

@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 
 const jwt = require("jsonwebtoken");
 const { SECRET_KEY } = require("../config");
-const { getUserById } = require("../actions");
+const { getUserById } = require("../actions/userActions");
 
 const brcypt = require("bcrypt");
 
@@ -12,6 +12,8 @@ const result = dotenv.config();
 if(result.error) console.log(result.error);
 
 function getUserId(context) {
+    getUserById(1);
+    console.log(getUserById(1))
     const Authorization = context.request.get("Authorization");
     if(Authorization){
         const token = Authorization.replace("JWT ", "");
