@@ -17,8 +17,17 @@ const Posts = async (_, args, context, info) => {
     return posts
 }
 
+const Post = (_, args, context, info) => {
+	return actions.getPostById(args.id).then((post) => {
+		if (!post) throw new Error("Post does not exist");
+		return post;
+	})
+		.catch(e => e);
+};
+
 module.exports = {
     prueba,
     Users,
-    Posts
+    Posts,
+    Post
 }

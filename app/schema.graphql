@@ -4,6 +4,7 @@ type Query{
     prueba:String
     Users:[User]
     Posts:[Post]
+    Post(id:ID!):Post
 }
 
 type Mutation{

@@ -20,10 +20,15 @@ const updatePostbyId = (id, data) => {
     return Post.findByIdAndUpdate(id,{$set: data}, {new:true})
 }
 
+const getPostById = (id) => {
+	return Post.findOne({_id:id,is_active:true}).populate("author");
+};
+
 module.exports = {
     createPost,
     getAllPost,
     getPostsByCategory,
     getPostsByTag,
-    updatePostbyId
+    updatePostbyId, 
+    getPostById
 }
