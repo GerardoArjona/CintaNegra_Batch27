@@ -8,11 +8,11 @@ const getAllPost = () => {
     return Post.find({is_active:true}).populate("author");
 }
 
-const getPostsByTag = () => {
-    return Post.find({tags:{$in:tag}, is_active:true}).populate("author");
+const getPostsByTag = (tags) => {
+    return Post.find({tags:{$in:tags}, is_active:true}).populate("author");
 }
 
-const getPostsByCategory = () => {
+const getPostsByCategory = (category) => {
     return Post.find({category:category, is_active:true}).populate("author");
 }
 

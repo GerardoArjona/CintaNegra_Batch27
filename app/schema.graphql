@@ -3,7 +3,8 @@ scalar Upload
 type Query{
     prueba:String
     Users:[User]
-    Posts:[Post]
+    User(id:ID!):User
+    Posts(category:CATEGORIES):[Post]
     Post(id:ID!):Post
 }
 

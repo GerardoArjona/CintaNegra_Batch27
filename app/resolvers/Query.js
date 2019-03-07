@@ -10,8 +10,15 @@ const Users = (_, args, context, info) => {
         .catch(e => e)
 }
 
+const User = (_, args, context, info) => {
+	return actions.getUserById(args.id).then((user) => {
+		if (!user) throw new Error("User does not exist");
+		return user;
+	}).catch((e) => e);
+};
+
 const Posts = async (_, args, context, info) => {
-    const posts = args.tag ? await actions.getPostsByTag(args.tag)
+    const posts = args.tags ? await actions.getPostsByTag(args.tags)
                     : args.category ? await actions.getPostsByCategory(args.category)
                         :   await actions.getAllPost();
     return posts
@@ -29,5 +36,6 @@ module.exports = {
     prueba,
     Users,
     Posts,
-    Post
+    Post,
+    User
 }
